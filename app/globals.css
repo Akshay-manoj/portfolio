@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Blueprint engineering-canvas grid background (design token) */
+body {
+  background-color: #faf8ff;
+  background-image: linear-gradient(rgba(0, 76, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 76, 237, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #b7c4ff;
+  color: #001452;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f3ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #c3c5d9;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b7c4ff;
+}
+
+/* Material Symbols sizing */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  line-height: 1;
+  user-select: none;
+}
+.material-symbols-outlined.filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+  }
+
+  /* Soft, diffused ambient shadow from the design system */
+  .soft-shadow {
+    box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05);
+  }
+  .soft-shadow-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .soft-shadow-hover:hover {
+    box-shadow: 0px 12px 32px rgba(15, 23, 42, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+/* Marquee track is duplicated; translate -50% loops seamlessly */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-float,
+  .animate-ping-slow {
+    animation: none !important;
+  }
+}

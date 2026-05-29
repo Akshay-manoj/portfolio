@@ -1,0 +1,130 @@
+import type { Config } from "tailwindcss";
+
+// Design system: "Terminal Pristine" (see /design/DESIGN.md)
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "surface-dim": "#d2d9f4",
+        "surface-container-highest": "#dae2fd",
+        "on-secondary-container": "#54647a",
+        "primary-fixed-dim": "#b7c4ff",
+        "on-surface-variant": "#434656",
+        "on-secondary-fixed": "#0b1c30",
+        tertiary: "#4a4f52",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed": "#dde1ff",
+        surface: "#faf8ff",
+        "inverse-primary": "#b7c4ff",
+        outline: "#737688",
+        "on-background": "#131b2e",
+        background: "#faf8ff",
+        "tertiary-container": "#62676a",
+        "on-primary-fixed": "#001452",
+        "secondary-container": "#d0e1fb",
+        "on-secondary-fixed-variant": "#38485d",
+        "primary-container": "#0052ff",
+        "inverse-surface": "#283044",
+        "surface-tint": "#004ced",
+        "on-tertiary-fixed": "#171c1f",
+        primary: "#003ec7",
+        "on-primary": "#ffffff",
+        "secondary-fixed-dim": "#b7c8e1",
+        "on-error": "#ffffff",
+        "on-tertiary-fixed-variant": "#43474b",
+        "tertiary-fixed-dim": "#c3c7cb",
+        "on-tertiary": "#ffffff",
+        "secondary-fixed": "#d3e4fe",
+        "inverse-on-surface": "#eef0ff",
+        "tertiary-fixed": "#dfe3e7",
+        "on-tertiary-container": "#e2e6ea",
+        "surface-container": "#eaedff",
+        error: "#ba1a1a",
+        "surface-variant": "#dae2fd",
+        "on-error-container": "#93000a",
+        "outline-variant": "#c3c5d9",
+        "on-surface": "#131b2e",
+        "on-primary-fixed-variant": "#0038b6",
+        "surface-container-high": "#e2e7ff",
+        "error-container": "#ffdad6",
+        secondary: "#505f76",
+        "on-secondary": "#ffffff",
+        "surface-bright": "#faf8ff",
+        "surface-container-low": "#f2f3ff",
+        "on-primary-container": "#dfe3ff",
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px",
+      },
+      spacing: {
+        "margin-mobile": "20px",
+        "margin-desktop": "80px",
+        base: "8px",
+        gutter: "24px",
+      },
+      maxWidth: {
+        "max-width": "1200px",
+      },
+      fontFamily: {
+        "headline-md": ["var(--font-sans)", "Inter", "sans-serif"],
+        "body-md": ["var(--font-sans)", "Inter", "sans-serif"],
+        "headline-lg": ["var(--font-sans)", "Inter", "sans-serif"],
+        "headline-xl": ["var(--font-sans)", "Inter", "sans-serif"],
+        "headline-xl-mobile": ["var(--font-sans)", "Inter", "sans-serif"],
+        "body-lg": ["var(--font-sans)", "Inter", "sans-serif"],
+        "label-mono": ["var(--font-mono)", "JetBrains Mono", "monospace"],
+      },
+      fontSize: {
+        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+        "body-md": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+        "headline-lg": [
+          "36px",
+          { lineHeight: "44px", letterSpacing: "-0.01em", fontWeight: "700" },
+        ],
+        "headline-xl": [
+          "60px",
+          { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "800" },
+        ],
+        "headline-xl-mobile": [
+          "40px",
+          { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" },
+        ],
+        "body-lg": ["18px", { lineHeight: "30px", fontWeight: "400" }],
+        "label-mono": [
+          "14px",
+          { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" },
+        ],
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        "ping-slow": {
+          "0%": { transform: "scale(1)", opacity: "0.6" },
+          "75%, 100%": { transform: "scale(3)", opacity: "0" },
+        },
+      },
+      animation: {
+        marquee: "marquee 30s linear infinite",
+        float: "float 6s ease-in-out infinite",
+        "ping-slow": "ping-slow 3s cubic-bezier(0,0,0.2,1) infinite",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
