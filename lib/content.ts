@@ -49,7 +49,7 @@ export const home = {
   headlineLead: "Building digital experiences with ",
   headlineAccent: "precision", // the highlighted (blue) word
   intro:
-    "Write a short, punchy line about what you build and the value you bring. This shows under your name on the home page.",
+    "I'm Akshay Manoj — a full-stack developer with 6+ years of experience building fast, reliable web applications, end to end, from well-architected APIs and databases to clean, responsive interfaces.",
   primaryCta: { label: "View Projects", href: "/projects" },
   secondaryCta: { label: "Contact Me", href: "/contact" },
   featured: {
@@ -155,9 +155,9 @@ export const about = {
   headlineLead: "Architecting digital experiences with ",
   headlineAccent: "precision", // highlighted word
   intro:
-    "Write a short intro about who you are and what you focus on. This is the first thing people read on the About page.",
+    "I'm a full-stack developer based in Thalassery, Kerala, with 6+ years of experience building web applications that are fast, maintainable, and a pleasure to use.",
   body:
-    "Add a longer paragraph here about your background, experience, and how you approach building software.",
+    "I work comfortably across the entire stack — modelling and optimizing databases, building robust APIs and backend services with PHP/Laravel and Node.js, and crafting responsive front-ends with React, Next.js, and Vue. I care about clean architecture, thoughtful system design, and shipping software that holds up in production.",
   currentStatusLabel: "CURRENT_STATUS",
   currentStatus: "", // e.g. "Open to new opportunities." — leave "" to hide
   expertiseTitle: "Technical Expertise",
