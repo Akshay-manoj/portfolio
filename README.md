@@ -1,4 +1,4 @@
-# Portfolio — Akshay Manoj
+# Portfolio
 
 A precision, light-mode developer portfolio for **Akshay Manoj**, a full-stack
 developer. Design language: "Terminal Pristine" (see [`/design`](./design)).
