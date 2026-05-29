@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { nav, site } from "@/lib/data";
+import { nav, site } from "@/lib/content";
 import { Icon } from "./Icon";
 
 export function Navbar() {
@@ -24,7 +24,8 @@ export function Navbar() {
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  const ctaHref = site.resumeUrl || "/contact";
+  const hasResume = Boolean(site.resumeUrl && site.resumeUrl !== "#");
+  const ctaHref = hasResume ? site.resumeUrl : "/contact";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4 md:pt-6">
@@ -82,10 +83,10 @@ export function Navbar() {
         {/* CTA */}
         <Link
           href={ctaHref}
-          target={site.resumeUrl ? "_blank" : undefined}
+          target={hasResume ? "_blank" : undefined}
           className="group ml-1 hidden items-center gap-1.5 rounded-full bg-on-surface px-5 py-2 font-body-md text-body-md font-semibold text-surface transition-all hover:bg-primary md:flex"
         >
-          {site.resumeUrl ? "Resume" : "Let's talk"}
+          {hasResume ? "Resume" : "Let's talk"}
           <Icon
             name="arrow_forward"
             className="text-[18px] transition-transform group-hover:translate-x-0.5"
@@ -129,10 +130,10 @@ export function Navbar() {
             ))}
             <Link
               href={ctaHref}
-              target={site.resumeUrl ? "_blank" : undefined}
+              target={hasResume ? "_blank" : undefined}
               className="mt-1 flex items-center justify-center gap-1.5 rounded-2xl bg-on-surface px-4 py-3 font-body-md font-semibold text-surface"
             >
-              {site.resumeUrl ? "Resume" : "Let's talk"}
+              {hasResume ? "Resume" : "Let's talk"}
               <Icon name="arrow_forward" className="text-[18px]" />
             </Link>
           </motion.div>

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "PowerShell(npm *)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(nvm list *)",
+      "PowerShell(nvm use *)",
+      "PowerShell(npm install *)",
+      "PowerShell($ProgressPreference='SilentlyContinue'; try { $r = Invoke-WebRequest -Uri http://localhost:3000 -UseBasicParsing -TimeoutSec 30; \"HOME status: $\\($r.StatusCode\\)\"; if \\($r.Content -match 'Fullstack Developer'\\) {\"  -> hero text rendered OK\"} } catch { \"HOME error: $_\" }; try { $c = Invoke-WebRequest -Uri http://localhost:3000/api/contact -Method POST -Body '{\"name\":\"Test\",\"email\":\"t@example.com\",\"message\":\"hi there\"}' -ContentType 'application/json' -UseBasicParsing -TimeoutSec 30; \"API status: $\\($c.StatusCode\\)  body: $\\($c.Content\\)\" } catch { \"API error: $_\" })"
+    ]
+  }
+}

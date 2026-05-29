@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { social } from "@/lib/data";
+import { social } from "@/lib/content";
 
-export function CopyEmailButton() {
+export function CopyEmailButton({ label }: { label: string }) {
   const [copied, setCopied] = useState(false);
 
   return (
@@ -19,7 +19,7 @@ export function CopyEmailButton() {
       }}
       className="rounded-2xl border border-outline bg-surface px-10 py-5 font-bold text-on-surface transition-all hover:bg-surface-container-low"
     >
-      {copied ? "Copied!" : "Copy Email Address"}
+      {copied ? "Copied!" : label}
     </button>
   );
 }

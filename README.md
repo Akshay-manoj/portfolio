@@ -26,9 +26,15 @@ npm run dev       # http://localhost:3000
 
 ## Editing your content
 
-Almost everything lives in **`lib/data.ts`** — name, role, hero copy, marquee
-tech, projects (with `category` for the filter + optional `image`), journey,
-skills, soft skills, interests, and social links. Edit that one file.
+**All site content lives in one file: [`lib/content.ts`](./lib/content.ts).**
+Name, role, hero/about/contact copy, section headings, button labels, marquee
+tech, projects (with `category` + optional `image`), journey, skills, soft
+skills, interests, and social links — edit that one file and the pages update.
+No component code to touch.
+
+Leave any field blank (`""` or `[]`) and that piece is hidden automatically —
+e.g. a blank `social.github` removes the GitHub link everywhere, and an empty
+`journey` hides the whole "My Journey" section.
 
 - **Hero portrait / About portrait:** set `site.portrait` to e.g. `/portrait.jpg`
   and drop the file in `/public`. Empty = gradient placeholder.

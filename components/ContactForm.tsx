@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { contact } from "@/lib/content";
 import { Icon } from "./Icon";
+
+const f = contact.form;
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -46,18 +49,18 @@ export function ContactForm() {
               htmlFor="name"
               className="font-label-mono text-label-mono uppercase tracking-wider text-on-surface-variant"
             >
-              Full Name
+              {f.nameLabel}
             </label>
-            <input id="name" name="name" type="text" required placeholder="John Doe" className={inputCls} />
+            <input id="name" name="name" type="text" required placeholder={f.namePlaceholder} className={inputCls} />
           </div>
           <div className="space-y-2">
             <label
               htmlFor="email"
               className="font-label-mono text-label-mono uppercase tracking-wider text-on-surface-variant"
             >
-              Email Address
+              {f.emailLabel}
             </label>
-            <input id="email" name="email" type="email" required placeholder="john@example.com" className={inputCls} />
+            <input id="email" name="email" type="email" required placeholder={f.emailPlaceholder} className={inputCls} />
           </div>
         </div>
         <div className="space-y-2">
@@ -65,14 +68,14 @@ export function ContactForm() {
             htmlFor="message"
             className="font-label-mono text-label-mono uppercase tracking-wider text-on-surface-variant"
           >
-            Message
+            {f.messageLabel}
           </label>
           <textarea
             id="message"
             name="message"
             required
             rows={6}
-            placeholder="Tell me about your project..."
+            placeholder={f.messagePlaceholder}
             className={`${inputCls} resize-none`}
           />
         </div>
@@ -86,19 +89,19 @@ export function ContactForm() {
         >
           {status === "sending" && (
             <>
-              <span>Sending...</span>
+              <span>{f.sending}</span>
               <Icon name="sync" className="animate-spin text-[20px]" />
             </>
           )}
           {status === "sent" && (
             <>
-              <span>Message Sent!</span>
+              <span>{f.sent}</span>
               <Icon name="check_circle" className="text-[20px]" />
             </>
           )}
           {(status === "idle" || status === "error") && (
             <>
-              <span>Send Message</span>
+              <span>{f.submit}</span>
               <Icon name="send" className="text-[20px]" />
             </>
           )}

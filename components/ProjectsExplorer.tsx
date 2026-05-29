@@ -2,16 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { projects, type Category } from "@/lib/data";
+import { projects, projectsPage, type Category } from "@/lib/content";
 import { Icon } from "./Icon";
 import { ProjectMedia } from "./ProjectMedia";
 
-const FILTERS: { label: string; value: "all" | Category }[] = [
-  { label: "All Projects", value: "all" },
-  { label: "Frontend", value: "frontend" },
-  { label: "Backend", value: "backend" },
-  { label: "Full Stack", value: "fullstack" },
-];
+const FILTERS = projectsPage.filters;
 
 export function ProjectsExplorer() {
   const [filter, setFilter] = useState<"all" | Category>("all");
@@ -28,6 +23,23 @@ export function ProjectsExplorer() {
       return matchesFilter && matchesQuery;
     });
   }, [filter, query]);
+
+  // No projects yet — show a graceful placeholder instead of an empty grid.
+  if (projects.length === 0) {
+    return (
+      <section className="flex flex-col items-center gap-5 rounded-2xl border border-dashed border-outline-variant/50 bg-surface-container-low/40 px-8 py-24 text-center">
+        <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-container/15 text-primary">
+          <Icon name="deployed_code" className="text-[32px]" />
+        </span>
+        <h2 className="font-headline-md text-headline-md text-on-surface">
+          {projectsPage.empty.title}
+        </h2>
+        <p className="max-w-md font-body-md text-body-md text-on-surface-variant">
+          {projectsPage.empty.body}
+        </p>
+      </section>
+    );
+  }
 
   return (
     <>
@@ -57,7 +69,7 @@ export function ProjectsExplorer() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search tech stack..."
+              placeholder={projectsPage.searchPlaceholder}
               className="w-64 rounded-lg border border-outline-variant bg-surface-container-lowest py-2 pl-10 pr-4 font-body-md text-body-md transition-all focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
             />
           </div>

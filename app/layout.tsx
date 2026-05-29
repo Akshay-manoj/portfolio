@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { site } from "@/lib/data";
+import { site } from "@/lib/content";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BackgroundFX } from "@/components/BackgroundFX";
@@ -20,22 +20,28 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
+// Treat blank or "#" placeholders as "no URL set" so a placeholder
+// site.url doesn't crash the build/render.
+const siteUrl = (() => {
+  try {
+    return new URL(site.url);
+  } catch {
+    return undefined;
+  }
+})();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: siteUrl,
   title: `${site.name} | ${site.role}`,
-  description: home_description(),
+  description: site.description,
   openGraph: {
     title: `${site.name} | ${site.role}`,
-    description: home_description(),
-    url: site.url,
+    description: site.description,
+    url: siteUrl?.toString(),
     siteName: site.name,
     type: "website",
   },
 };
-
-function home_description() {
-  return "Precision full-stack engineering — high-performance web applications, architectural integrity, and seamless user interfaces.";
-}
 
 export default function RootLayout({
   children,
